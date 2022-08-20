@@ -14,12 +14,14 @@ target_tweets<-search_tweets(
   retryonratelimit = TRUE )
 
 #save the retrieved data 'target_tweets' in the current directory.
-target_tweets %>% write_csv("raw_target_tweets20/08/2022.csv")
+target_tweets %>% write_csv("raw_target_tweets20Aug2022.csv")
 
 
 #Converting the data set into a short and cleaner data set as required. 
-mtarget_tweets20Aug2022<-target_tweets%>%
-  select(user_id, screen_name, created_at, text, favorite_count, quoted_location, favorite_count, hashtags, mentions_user_id, mentions_screen_name, quoted_followers_count)
+manipulated_tweets20Aug2022<-target_tweets%>%
+  select(user_id, screen_name, created_at, text, favorite_count, 
+         quoted_location, favorite_count, hashtags, mentions_user_id, 
+         mentions_screen_name, quoted_followers_count)
 
 #save the manipulated data set 'mtarget_tweets20Aug2022' in the current directory.
-mtarget_tweets20Aug2022 %>% write_csv("mtarget_tweets20Aug2022.csv")
+manipulated_tweets20Aug2022 %>% write_csv("manipulated_tweets20Aug2022.csv")
